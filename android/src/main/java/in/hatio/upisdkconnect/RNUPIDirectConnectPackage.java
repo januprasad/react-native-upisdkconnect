@@ -10,15 +10,15 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
-public class RNSimpleAlertDialogPackage implements ReactPackage {
+public class RNUPIDirectConnectPackage implements ReactPackage {
 
-    public RNSimpleAlertDialogPackage() {}
-    public RNSimpleAlertDialogPackage(Activity activity) {}
+    public RNUPIDirectConnectPackage() {}
+    public RNUPIDirectConnectPackage(Activity activity) {}
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new RNSimpleAlertDialogModule(reactContext));
+        modules.add(new RNUPIDirectConnectModule(reactContext));
         return modules;
     }
 

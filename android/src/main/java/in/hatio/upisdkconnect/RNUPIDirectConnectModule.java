@@ -18,7 +18,7 @@ import com.facebook.react.bridge.ReadableMap;
 import java.util.Map;
 import java.util.HashMap;
 
-public class RNSimpleAlertDialogModule extends ReactContextBaseJavaModule {
+public class RNUPIDirectConnectModule extends ReactContextBaseJavaModule {
 
     private static final String TAG = RNSimpleAlertDialogModule.class.getSimpleName();
     private static final String POSITIVE_BUTTON_KEY = "POSITIVE_BUTTON";
