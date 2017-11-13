@@ -32,4 +32,6 @@ repositories {
 
 dependencies {
     compile 'com.facebook.react:react-native:0.20.1'
+    compile project(':cl-mock-1.5-debug')
+    compile project(':upisdk-debug.005')
 }

@@ -1,22 +1,19 @@
 package in.hatio.upisdkconnect;
 
-import android.util.Log;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
 import com.facebook.react.bridge.Callback;
-import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import in.hatio.upi.shared.SDK;
 
 public class RNUPIDirectConnectModule extends ReactContextBaseJavaModule {
 
@@ -31,7 +28,7 @@ public class RNUPIDirectConnectModule extends ReactContextBaseJavaModule {
 
     @Override
     public String getName() {
-      return "SimpleAlertAndroid";
+      return "UPIDirectConnect";
     }
 
     @Override
@@ -44,7 +41,33 @@ public class RNUPIDirectConnectModule extends ReactContextBaseJavaModule {
     }
 
 
-    @ReactMethod void
+    @ReactMethod void initPayment(final String params, final Callback callbackContext){
+        String paramsJson = "{\n" +
+                "\t\"merchant_name\": \"ShoppingCart\",\n" +
+                "\t\"order_id\": \"" + getRandomHexString(12) + "\",\n" +
+                "\t\"amount\": \"1000\"\n" +
+                "}";
+
+        SDK sdk = new SDK.Builder(getReactApplicationContext()).build();
+        sdk.initPayment(paramsJson, new SDK.SDKCallBack(){
+
+            @Override
+            public void onOtpReceive(String otp) {
+
+            }
+
+            @Override
+            public void onPaymentFailed(String error) {
+
+            }
+
+            @Override
+            public void onPaymentSuccess(String message) {
+                callbackContext.invoke(message);
+            }
+        });
+
+    }
     @ReactMethod
     public void alert(final String title, final String message, final ReadableArray buttonConfig, final Callback buttonsCallback) {
       AlertDialog.Builder builder = new AlertDialog.Builder(getCurrentActivity());
@@ -95,6 +118,16 @@ public class RNUPIDirectConnectModule extends ReactContextBaseJavaModule {
 
       AlertDialog ad = builder.create();
       ad.show();
+    }
+    private String getRandomHexString(int numchars) {
+        Random r = new Random();
+        StringBuffer sb = new StringBuffer();
+        sb.append("TXN");
+        while (sb.length() < numchars) {
+            sb.append(Integer.toHexString(r.nextInt()));
+        }
+
+        return sb.toString().substring(0, numchars).toUpperCase();
     }
 
 }
