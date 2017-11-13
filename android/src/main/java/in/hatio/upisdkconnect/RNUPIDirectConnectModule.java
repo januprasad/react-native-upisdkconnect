@@ -20,12 +20,12 @@ import java.util.HashMap;
 
 public class RNUPIDirectConnectModule extends ReactContextBaseJavaModule {
 
-    private static final String TAG = RNSimpleAlertDialogModule.class.getSimpleName();
+    private static final String TAG = RNUPIDirectConnectModule.class.getSimpleName();
     private static final String POSITIVE_BUTTON_KEY = "POSITIVE_BUTTON";
     private static final String NEGATIVE_BUTTON_KEY = "NEGATIVE_BUTTON";
     private static final String NEUTRAL_BUTTON_KEY = "NEUTRAL_BUTTON";
 
-    public RNSimpleAlertDialogModule(ReactApplicationContext reactContext) {
+    public RNUPIDirectConnectModule(ReactApplicationContext reactContext) {
       super(reactContext);
     }
 
