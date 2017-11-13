@@ -1,4 +1,4 @@
-package com.burnweb.rnsimplealertdialog;
+package in.hatio.upisdkconnect;
 
 import android.util.Log;
 
