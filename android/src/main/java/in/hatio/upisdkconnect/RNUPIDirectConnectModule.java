@@ -43,6 +43,8 @@ public class RNUPIDirectConnectModule extends ReactContextBaseJavaModule {
       return constants;
     }
 
+
+    @ReactMethod void
     @ReactMethod
     public void alert(final String title, final String message, final ReadableArray buttonConfig, final Callback buttonsCallback) {
       AlertDialog.Builder builder = new AlertDialog.Builder(getCurrentActivity());
