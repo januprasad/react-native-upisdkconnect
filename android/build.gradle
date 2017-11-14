@@ -1,0 +1,35 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+      classpath 'com.android.tools.build:gradle:2.3.3'
+  }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 26
+        versionCode 6
+        versionName "1.0.0"
+    }
+
+    lintOptions {
+        lintConfig file("lint.xml")
+    }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+    compile 'com.facebook.react:react-native:0.20.1'
+}
