@@ -17,8 +17,6 @@
   ],
   "author": "jenuprasad",
   "license": "MIT",
-  "repository": "https://github.com/jenuprasad/react-native-upisdkconnect",
-  "bugs": "https://github.com/jenuprasad/react-native-upisdkconnect/issues",
   "peerDependencies": {
     "react-native": ">=0.19"
   },

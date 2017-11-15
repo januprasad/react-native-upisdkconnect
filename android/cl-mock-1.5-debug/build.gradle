@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('cl-mock-1.5-debug1.aar'))
